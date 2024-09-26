@@ -375,10 +375,12 @@ footer .social-icons i:hover {
         min-width: 280px; /* Define uma largura mínima para cada produto */
         margin-right: 10px; /* Espaçamento entre os produtos */
         flex-shrink: 0; /* Impede que os produtos sejam comprimidos */
+        grid-template-columns: (1, 1fr);
+
     }
 
     .produto img {
-        max-width: 100%; /* Imagem ocupa toda a largura do card */
+        max-width: 50%; /* Imagem ocupa toda a largura do card */
         height: auto;
     }
 }
