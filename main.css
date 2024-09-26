@@ -1,0 +1,347 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Estilo do cabeçalho e navegação */
+header {
+    background-color: #4b2c20;
+    padding: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+#inicio h1 img {
+    width: 30px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.container-nav {
+    display: flex;
+    justify-content: start;
+    align-items: center; /* Alinha verticalmente no centro */
+    margin: 0 auto;
+    width: 80%;
+    flex-wrap: wrap; /* Permite que os itens quebrem em telas menores */
+    padding: 20px;
+}
+
+.cart {
+    padding-left: 10px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.menu {
+    padding-left: 500px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.container-nav img {
+    width: 50px;
+    height: auto;
+    border-radius: 10px;
+    margin-right: 15px; /* Espaçamento à direita da imagem */
+}
+
+h1 {
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-size: 50px;
+    color: #fff;
+    font-style: italic;
+    display: flex; /* Adiciona flexbox para alinhar a imagem e o texto */
+    align-items: center; /* Alinha a imagem e o texto verticalmente no centro */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.menu-toggle {
+    display: none; /* Escondido por padrão */
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background: #fff;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.menu li a:hover {
+    color: #ffeb3b;
+}
+
+.cart {
+    position: relative;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ffeb3b;
+    color: #333;
+    border-radius: 50%;
+    padding: 5px 8px;
+    font-size: 0.8em;
+}
+
+/* Container principal */
+.container {
+    width: 80%;
+    margin: 20px auto;
+}
+
+/* Estilo da Seção Sobre a Loja */
+.sobre-loja {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+.imagem-container {
+    flex: 1;
+    max-width: 50%;
+    padding: 1em;
+}
+
+.imagem-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+img {
+    height: 200px;
+    max-width: auto;
+}
+
+.texto-container {
+    flex: 2;
+    padding: 1em;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    font-family: "Playfair Display", serif;
+    color: #4b2c20;
+    font-size: 1.6em;
+    margin-bottom: 15px;
+}
+
+.texto-container p {
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+/* Seção de Produtos */
+.produtos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.produto {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.produto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.produto img {
+    max-width: 50%;
+    border-radius: 10px;
+}
+
+/* Estilo das Tabelas */
+.produto-descricao {
+    width: 100%;
+    margin: 10px 0;
+    border-collapse: collapse; /* Para evitar espaçamento entre as células */
+}
+
+.produto-descricao th,
+.produto-descricao td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.produto-descricao th {
+    background-color: #db3e00; /* Cor de fundo do cabeçalho da tabela */
+    color: white;
+}
+
+.produto-descricao tr:nth-child(even) {
+    background-color: #e7e7e7; /* Linhas alternadas */
+}
+
+.produto-descricao tr:hover {
+    background-color: #ddd; /* Destaca a linha ao passar o mouse */
+}
+
+/* Estilo dos Botões */
+button {
+    background-color: #4b2c20;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-top: 10px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #e5533d;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #cc4834;
+    transform: scale(0.98);
+}
+
+/* Estilo do Rodapé */
+footer {
+    background-color: #4b2c20;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer .footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+footer a {
+    color: #ffeb3b;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer .social-icons {
+    margin-top: 10px;
+}
+
+footer .social-icons i {
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+footer .social-icons i:hover {
+    color: #ffeb3b;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+    .produtos {
+        grid-template-columns: repeat(2, 1fr); /* Ajuste para 2 colunas */
+    }
+
+    .container-nav {
+        flex-direction: column; /* Muda direção em telas menores */
+        align-items: flex-start;
+    }
+
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%; /* Largura total do menu */
+    }
+}
+
+@media (max-width: 640px) {
+    .produtos {
+        grid-template-columns: 1fr; /* Ajuste para 1 coluna */
+    }
+
+    .menu {
+        display: none; /* Esconde o menu em telas muito pequenas */
+    }
+
+    .menu-toggle {
+        display: flex; /* Mostra o toggle do menu em telas pequenas */
+    }
+
+    .container-nav {
+        justify-content: space-between; /* Alinha o conteúdo corretamente */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Reduz o tamanho do título */
+    }
+
+    .texto-container {
+        font-size: 0.9em; /* Reduz o tamanho do texto */
+    }
+}
+
+/* Estilo do menu em telas pequenas */
+@media (max-width: 640px) {
+    .menu.show {
+        display: flex; /* Mostra o menu quando ativo */
+        flex-direction: column; /* Muda a direção do menu para coluna */
+        background-color: #4b2c20; /* Cor de fundo do menu */
+        position: absolute; /* Torna o menu posicionado */
+        top: 60px; /* Posição abaixo do cabeçalho */
+        left: 0;
+        right: 0;
+        z-index: 100; /* Fica acima de outros elementos */
+        padding: 20px; /* Espaçamento interno */
+        border-radius: 0 0 10px 10px; /* Bordas arredondadas */
+    }
+}
