@@ -13,8 +13,10 @@
 <body>
     <header>
         <div class="container-nav">
-            <img src="./imagem/logo-cafe-gourmet.png" alt="grão de café">
-            <h1>grão dourado</h1>
+            
+            <h1>
+                <img src="./imagem/logo-cafe-gourmet.png" alt="grão de café">grão dourado
+            </h1>
             <div class="menu-toggle" id="menu-toggle">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -172,12 +174,12 @@
         </div>
     </footer>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('menu-toggle').addEventListener('click', function() {
-                const menu = document.getElementById('menu');
-                menu.classList.toggle('show'); // Alterna a classe "show" no menu
-            });
+        // Certifique-se de que os IDs correspondem aos elementos HTML
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show'); // Alterna a classe "show" no menu
         });
     </script>
+    
 </body>
 </html>

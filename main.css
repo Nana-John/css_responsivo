@@ -21,8 +21,8 @@ header {
 
 .container-nav {
     display: flex;
-    justify-content: 20px; /* Muda para space-between para alocar espaço entre logo e menu */
-    align-items: middle; /* Alinha verticalmente no centro */
+    justify-content: space-between; /* Muda para space-between para alocar espaço entre logo e menu */
+    align-items: center; /* Alinha verticalmente no centro */
     margin: 0 auto;
     width: 80%;
     padding: 20px;
@@ -47,19 +47,19 @@ h1 {
 
 .menu {
     display: flex;
-    padding-left: 250px;
     list-style: none;
     gap: 20px;
 }
 
 .menu.show {
-    display: none; /* Esconde o menu padrão em telas pequenas */
-    position: relative; /* Para sobrepor o conteúdo */
-    top: 100%; /* Ajuste conforme necessário */
+    display: flex; /* Mostra o menu quando a classe "show" é adicionada */
+    flex-direction: column; /* Alinha os itens do menu em coluna */
+    position: absolute; /* Para sobrepor o conteúdo */
+    top: 70px; /* Ajuste conforme necessário */
     left: 0;
     width: 100%; /* Largura total */
+    background-color: #4b2c20; /* Cor de fundo */
     z-index: 100; /* Garante que o menu fique acima de outros elementos */
-    display: flex; /* Mostra o menu quando a classe "show" é adicionada */
 }
 
 .menu li a {
@@ -78,10 +78,12 @@ h1 {
     color: #fff;
     font-size: 1.5em;
     cursor: pointer;
+    display: flex; /* Torna o carrinho flexível */
+    align-items: center; /* Alinha o ícone do carrinho no centro */
 }
 
 .cart-count {
-    position:absolute ;
+    position: absolute;
     top: -10px;
     right: -25px;
     background: #ffeb3b;
@@ -140,11 +142,9 @@ h2 {
 
 /* Seção de Produtos */
 .produtos {
-    display: flex;
-    align-items: center;
-    grid-template-columns:repeat(4, 1fr);
+    display: grid; /* Alterado para grid para melhor responsividade */
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
-
 }
 
 .produto {
@@ -154,7 +154,6 @@ h2 {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    min-width: auto;
 }
 
 .produto:hover {
@@ -261,28 +260,20 @@ footer .social-icons i:hover {
 
 /* Responsividade */
 @media (max-width: 1024px) {
-    /* Ajuste para telas de notebooks */
     .produtos {
         grid-template-columns: repeat(3, 1fr); /* 3 produtos por linha */
     }
 }
 
 @media (max-width: 640px) {
-    nav .menu {
-        grid-template-columns: repeat(2, 1fr); /* 2 produtos por linha */
+    .produtos {
+        grid-template-columns: repeat(1, 1fr); /* 1 produtos por linha */
     }
 
     .menu {
-        display: none; /* Esconde o menu padrão em telas pequenas */
-        flex-direction: column; /* Alinha os itens do menu em coluna */
-        position: absolute; /* Para sobrepor o conteúdo */
-        top: 70px; /* Ajuste conforme necessário */
-        left: 0;
-        width: 100%; /* Largura total */
-        background-color: #4b2c20; /* Cor de fundo */
-        z-index: 100; /* Garante que o menu fique acima de outros elementos */
+        display: flex; /* Esconde o menu padrão em telas pequenas */
     }
-
+    
     .menu.show {
         display: flex; /* Mostra o menu quando a classe "show" é adicionada */
     }
@@ -302,11 +293,92 @@ footer .social-icons i:hover {
         flex: 1; /* Permite que o texto ocupe espaço suficiente */
         margin: 10px 0; /* Adiciona margem entre seções */
     }
-    @media (max-width: 640px) {
-        .sobre-loja {
-    /* Seção Sobre a Loja */
+
     .sobre-loja {
         flex-direction: column; /* Alinha verticalmente a seção */
     }
 }
+@media (max-width: 768px) {
+    /* Ajustes para telas menores */
+    .container-nav {
+        flex-direction: row; /* Mantém logo, menu-toggle e cart em linha */
+        align-items: center;
+        justify-content: space-between; /* Distribui o espaço entre elementos */
+        width: 90%; /* Reduz a largura do container-nav */
+        padding: 10px 15px; /* Ajuste o padding */
     }
+
+    /* Menu Toggle */
+    .menu-toggle {
+        display: flex; /* Exibe o botão toggle */
+        position: absolute;
+        right: 15px; /* Ajusta o posicionamento à direita */
+        top: 20px; /* Posição do topo */
+    }
+
+    /* Carrinho de compras */
+    .cart {
+        position: absolute; /* Torna o carrinho absoluto */
+        right: 15px; /* Posiciona à direita */
+        top: 70px; /* Ajuste conforme a altura do menu */
+        z-index: 101; /* Fica acima do menu */
+        font-size: 1.2em; /* Reduz um pouco o tamanho do ícone */
+    }
+
+    /* Ajusta a contagem do carrinho */
+    .cart-count {
+        position: absolute;
+        top: -10px; /* Ajuste de posição do indicador */
+        right: -10px; /* Ajuste de posição do indicador */
+        background: #ffeb3b; /* Cor do background */
+        color: #333; /* Cor do texto */
+        border-radius: 50%; /* Torna o contador redondo */
+        padding: 5px 8px;
+        font-size: 0.8em;
+    }
+
+    /* Ajustes no menu em telas menores */
+    .menu {
+        display:none; /* Esconde o menu por padrão */
+        flex-direction: column; /* Alinha itens do menu em coluna */
+        position: absolute; /* Para sobrepor o conteúdo */
+        top: 70px; /* Alinha abaixo do cabeçalho */
+        left: 0;
+        width: 100%; /* Largura total */
+        background-color: #4b2c20; /* Cor de fundo */
+        z-index: 100; /* Garante que o menu fique acima de outros elementos */
+    }
+
+    .menu.show {
+        display: flex; /* Mostra o menu quando a classe "show" é adicionada */
+    }
+
+    /* Ajustes gerais */
+    .container-nav h1 {
+        font-size: 1.5em; /* Reduz o tamanho do logo */
+    }
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 480px) {
+    .produtos {
+        display: flex; /* Define layout flexível */
+        flex-direction: row; /* Itens em uma linha */
+        flex-wrap: nowrap; /* Impede que itens quebrem a linha */
+        overflow-x: auto; /* Habilita rolagem horizontal */
+        gap: 10px; /* Espaçamento entre os produtos */
+        justify-content: flex-start; /* Alinha os itens no início */
+        padding: 10px 0; /* Ajusta o espaçamento vertical */
+    }
+
+    .produto {
+        min-width: 280px; /* Define uma largura mínima para cada produto */
+        margin-right: 10px; /* Espaçamento entre os produtos */
+        flex-shrink: 0; /* Impede que os produtos sejam comprimidos */
+    }
+
+    .produto img {
+        max-width: 100%; /* Imagem ocupa toda a largura do card */
+        height: auto;
+    }
+}
