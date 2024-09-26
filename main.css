@@ -19,33 +19,13 @@ header {
     width: 100%;
 }
 
-#inicio h1 img {
-    width: 30px;
-    height: auto;
-    vertical-align: middle;
-    margin-right: 10px;
-}
-
 .container-nav {
     display: flex;
-    justify-content: start;
-    align-items: center; /* Alinha verticalmente no centro */
+    justify-content: 20px; /* Muda para space-between para alocar espaço entre logo e menu */
+    align-items: middle; /* Alinha verticalmente no centro */
     margin: 0 auto;
     width: 80%;
-    flex-wrap: wrap; /* Permite que os itens quebrem em telas menores */
     padding: 20px;
-}
-
-.cart {
-    padding-left: 10px;
-    margin: 0 auto;
-    width: 80%;
-}
-
-.menu {
-    padding-left: 500px;
-    margin: 0 auto;
-    width: 80%;
 }
 
 .container-nav img {
@@ -65,28 +45,21 @@ h1 {
     align-items: center; /* Alinha a imagem e o texto verticalmente no centro */
 }
 
-nav {
-    display: flex;
-    align-items: center;
-}
-
-.menu-toggle {
-    display: none; /* Escondido por padrão */
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background: #fff;
-}
-
 .menu {
     display: flex;
+    padding-left: 250px;
     list-style: none;
     gap: 20px;
+}
+
+.menu.show {
+    display: none; /* Esconde o menu padrão em telas pequenas */
+    position: relative; /* Para sobrepor o conteúdo */
+    top: 100%; /* Ajuste conforme necessário */
+    left: 0;
+    width: 100%; /* Largura total */
+    z-index: 100; /* Garante que o menu fique acima de outros elementos */
+    display: flex; /* Mostra o menu quando a classe "show" é adicionada */
 }
 
 .menu li a {
@@ -108,9 +81,9 @@ nav {
 }
 
 .cart-count {
-    position: absolute;
+    position:absolute ;
     top: -10px;
-    right: -10px;
+    right: -25px;
     background: #ffeb3b;
     color: #333;
     border-radius: 50%;
@@ -145,11 +118,6 @@ nav {
     border-radius: 10px;
 }
 
-img {
-    height: 200px;
-    max-width: auto;
-}
-
 .texto-container {
     flex: 2;
     padding: 1em;
@@ -158,7 +126,7 @@ img {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h3 {
+h2 {
     font-family: "Playfair Display", serif;
     color: #4b2c20;
     font-size: 1.6em;
@@ -172,9 +140,11 @@ h3 {
 
 /* Seção de Produtos */
 .produtos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: flex;
+    align-items: center;
+    grid-template-columns:repeat(4, 1fr);
+    gap: 10px;
+
 }
 
 .produto {
@@ -184,6 +154,7 @@ h3 {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    min-width: auto;
 }
 
 .produto:hover {
@@ -192,7 +163,8 @@ h3 {
 }
 
 .produto img {
-    max-width: 50%;
+    max-width: 200px;
+    height: auto;
     border-radius: 10px;
 }
 
@@ -200,7 +172,7 @@ h3 {
 .produto-descricao {
     width: 100%;
     margin: 10px 0;
-    border-collapse: collapse; /* Para evitar espaçamento entre as células */
+    border-collapse: separate; /* Para evitar espaçamento entre as células */
 }
 
 .produto-descricao th,
@@ -208,6 +180,7 @@ h3 {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
+    margin-bottom: 15px;
 }
 
 .produto-descricao th {
@@ -251,7 +224,7 @@ footer {
     background-color: #4b2c20;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 100px;
     margin-top: 40px;
 }
 
@@ -288,60 +261,52 @@ footer .social-icons i:hover {
 
 /* Responsividade */
 @media (max-width: 1024px) {
+    /* Ajuste para telas de notebooks */
     .produtos {
-        grid-template-columns: repeat(2, 1fr); /* Ajuste para 2 colunas */
-    }
-
-    .container-nav {
-        flex-direction: column; /* Muda direção em telas menores */
-        align-items: flex-start;
-    }
-
-    .menu {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%; /* Largura total do menu */
+        grid-template-columns: repeat(3, 1fr); /* 3 produtos por linha */
     }
 }
 
 @media (max-width: 640px) {
-    .produtos {
-        grid-template-columns: 1fr; /* Ajuste para 1 coluna */
+    nav .menu {
+        grid-template-columns: repeat(2, 1fr); /* 2 produtos por linha */
     }
 
     .menu {
-        display: none; /* Esconde o menu em telas muito pequenas */
+        display: none; /* Esconde o menu padrão em telas pequenas */
+        flex-direction: column; /* Alinha os itens do menu em coluna */
+        position: absolute; /* Para sobrepor o conteúdo */
+        top: 70px; /* Ajuste conforme necessário */
+        left: 0;
+        width: 100%; /* Largura total */
+        background-color: #4b2c20; /* Cor de fundo */
+        z-index: 100; /* Garante que o menu fique acima de outros elementos */
     }
 
-    .menu-toggle {
-        display: flex; /* Mostra o toggle do menu em telas pequenas */
+    .menu.show {
+        display: flex; /* Mostra o menu quando a classe "show" é adicionada */
     }
 
     .container-nav {
-        justify-content: space-between; /* Alinha o conteúdo corretamente */
+        flex-direction: column; /* Para alinhar logo, menu e carrinho verticalmente */
+        align-items: flex-start; /* Alinha os itens ao início */
+        width: 100%; /* Ajuste a largura */
+        padding: 10px; /* Reduzir o padding em telas pequenas */
     }
 
-    h1 {
-        font-size: 1.5em; /* Reduz o tamanho do título */
+    .imagem-container {
+        max-width: 100%; /* Imagem ocupa toda a largura em telas pequenas */
     }
 
     .texto-container {
-        font-size: 0.9em; /* Reduz o tamanho do texto */
+        flex: 1; /* Permite que o texto ocupe espaço suficiente */
+        margin: 10px 0; /* Adiciona margem entre seções */
+    }
+    @media (max-width: 640px) {
+        .sobre-loja {
+    /* Seção Sobre a Loja */
+    .sobre-loja {
+        flex-direction: column; /* Alinha verticalmente a seção */
     }
 }
-
-/* Estilo do menu em telas pequenas */
-@media (max-width: 640px) {
-    .menu.show {
-        display: flex; /* Mostra o menu quando ativo */
-        flex-direction: column; /* Muda a direção do menu para coluna */
-        background-color: #4b2c20; /* Cor de fundo do menu */
-        position: absolute; /* Torna o menu posicionado */
-        top: 60px; /* Posição abaixo do cabeçalho */
-        left: 0;
-        right: 0;
-        z-index: 100; /* Fica acima de outros elementos */
-        padding: 20px; /* Espaçamento interno */
-        border-radius: 0 0 10px 10px; /* Bordas arredondadas */
     }
-}
